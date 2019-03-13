@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dex:
+    container_name: oidc-dex
+    build: ./build/dex
+    volumes:
+      - ./project/dex:/go/src/github.com/dexidp/dex
+    privileged: true
+    command: tail -F
+    ports:
+      - 5555:5555
+      - 5556:5556
